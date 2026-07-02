@@ -11,9 +11,9 @@ public class Main {
         Scanner leitor = new Scanner(System.in);
         Cartao cartao = new Cartao();
 
-
         System.out.println("Digite o limite do cartão: ");
-        Integer limite = leitor.nextInt();
+        Double limite = leitor.nextDouble();
+        leitor.nextLine();
         cartao.setLimite(limite);
 
         System.out.println("Digite a descricao da compra: ");
@@ -21,10 +21,46 @@ public class Main {
         //compra.setDescricao(descricao);
 
         System.out.println("Digite o valor da compra: ");
-        Integer valor = leitor.nextInt();
+        Double valor = leitor.nextDouble();
         //compra.setValor(valor);
 
         Compra compra = new Compra(descricao, valor);
 
+        cartao.realizarCompra(compra);
+
+        System.out.println("Digite 0 para sair ou 1 para continuar");
+        Integer opcao = leitor.nextInt();
+        leitor.nextLine();
+
+        if (opcao == 1) {
+            while (opcao != 0) {
+
+                System.out.println("Digite a descricao da compra: ");
+                descricao = leitor.nextLine();
+                //compra.setDescricao(descricao);
+
+                System.out.println("Digite o valor da compra: ");
+                valor = leitor.nextDouble();
+                //compra.setValor(valor);
+
+                compra = new Compra(descricao, valor);
+
+                cartao.realizarCompra(compra);
+
+
+
+                System.out.println("Digite 0 para sair ou 1 para continuar");
+                opcao = leitor.nextInt();
+                leitor.nextLine();
+            }
+            System.out.println("Programa Encerrado!");
+
+        } else {
+            System.out.println("Programa Encerrado!");
+        }
+
+        System.out.println("*******************");
+        System.out.println("COMPRAS REALIZADAS:");
+        cartao.imprimirCompra();
     }
 }

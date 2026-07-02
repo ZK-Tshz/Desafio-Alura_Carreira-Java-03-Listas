@@ -1,17 +1,14 @@
 package Control;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Compra {
 
-    public Compra(String descricao, Integer valor) {
+    public Compra(String descricao, Double valor) {
         this.descricao = descricao;
         this.valor = valor;
     }
 
     private String descricao;
-    private Integer valor;
+    private Double valor;
 
     Cartao cartao = new Cartao();
 
@@ -23,25 +20,12 @@ public class Compra {
 //        this.descricao = descricao;
 //    }
 
-    public Integer getValor() {
+    public Double getValor() {
         return valor;
     }
 
-//    public void setValor(Integer valor) {
+//    public void setValor(Double valor) {
 //        this.valor = valor;
 //    }
 
-    List<Compra> itensCompra = new ArrayList<>();
-
-    public void realizarCompra(Compra item) {
-        if (cartao.verificarLimite(getValor()) == true) {
-
-            item = getDescricao();
-            itensCompra.add(item);
-        }
-    }
-
-    public void debitarValor() {
-        cartao.setLimite(cartao.getLimite() - getValor());
-    }
 }
