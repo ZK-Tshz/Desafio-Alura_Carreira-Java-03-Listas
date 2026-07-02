@@ -9,55 +9,38 @@ public class Main {
     public static void main() {
 
         Scanner leitor = new Scanner(System.in);
-        Cartao cartao = new Cartao();
 
         System.out.println("Digite o limite do cartão: ");
         Double limite = leitor.nextDouble();
         leitor.nextLine();
-        cartao.setLimite(limite);
+        Cartao cartao = new Cartao(limite);
 
-        System.out.println("Digite a descricao da compra: ");
-        String descricao = leitor.nextLine();
-        //compra.setDescricao(descricao);
+        Integer opcao = 1;
+        while (opcao != 0) {
 
-        System.out.println("Digite o valor da compra: ");
-        Double valor = leitor.nextDouble();
-        //compra.setValor(valor);
+            System.out.println("Digite a descricao da compra: ");
+            String descricao = leitor.nextLine();
+            //compra.setDescricao(descricao);
 
-        Compra compra = new Compra(descricao, valor);
+            System.out.println("Digite o valor da compra: ");
+            Double valor = leitor.nextDouble();
+            //compra.setValor(valor);
 
-        cartao.realizarCompra(compra);
+            Compra compra = new Compra(descricao, valor);
 
-        System.out.println("Digite 0 para sair ou 1 para continuar");
-        Integer opcao = leitor.nextInt();
-        leitor.nextLine();
+            cartao.realizarCompra(compra);
 
-        if (opcao == 1) {
-            while (opcao != 0) {
-
-                System.out.println("Digite a descricao da compra: ");
-                descricao = leitor.nextLine();
-                //compra.setDescricao(descricao);
-
-                System.out.println("Digite o valor da compra: ");
-                valor = leitor.nextDouble();
-                //compra.setValor(valor);
-
-                compra = new Compra(descricao, valor);
-
-                cartao.realizarCompra(compra);
-
-
-
+            if (cartao.verificarLimite(valor) == true) {
+                System.out.println("Compra Realizada!");
                 System.out.println("Digite 0 para sair ou 1 para continuar");
                 opcao = leitor.nextInt();
                 leitor.nextLine();
-            }
-            System.out.println("Programa Encerrado!");
 
-        } else {
-            System.out.println("Programa Encerrado!");
+            } else {
+                opcao = 0;
+            }
         }
+        System.out.println("Programa Encerrado!\n");
 
         System.out.println("*******************");
         System.out.println("COMPRAS REALIZADAS:");

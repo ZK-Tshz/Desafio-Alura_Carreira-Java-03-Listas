@@ -8,16 +8,20 @@ import java.util.List;
 public class Cartao {
 
     private Double limite;
+    private Double saldo;
 
-
+    public Cartao(Double limite) {
+        this.limite = limite;
+        this.saldo = limite;
+    }
 
     public Double getLimite() {
         return limite;
     }
 
-    public void setLimite(Double limite) {
-        this.limite = limite;
-    }
+//    public void setLimite(Double limite) {
+//        this.limite = limite;
+//    }
 
 
 
@@ -35,7 +39,7 @@ public class Cartao {
         if (verificarLimite(compra.getValor()) == true) {
 
             itensCompra.add(compra);
-            setLimite(getLimite() - compra.getValor());
+            this.limite = getLimite() - compra.getValor();
         } else {
             System.out.println("Saldo Insuficiente");
         }

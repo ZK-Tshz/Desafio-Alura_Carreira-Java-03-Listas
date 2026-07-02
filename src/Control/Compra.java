@@ -10,8 +10,6 @@ public class Compra {
     private String descricao;
     private Double valor;
 
-    Cartao cartao = new Cartao();
-
     public String getDescricao() {
         return descricao;
     }
