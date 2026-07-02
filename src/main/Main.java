@@ -1,7 +1,7 @@
 package main;
 
-import Control.Cartao;
-import Control.Compra;
+import control.Cartao;
+import control.Compra;
 
 import java.util.Scanner;
 
